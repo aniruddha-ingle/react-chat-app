@@ -1,7 +1,6 @@
 import React from "react";
 const MyMessage = (message) => {
   if (message?.message?.attachments?.length > 0) {
-    console.log("HERE!");
     return (
       <img
         src={message.message.attachments[0].file}

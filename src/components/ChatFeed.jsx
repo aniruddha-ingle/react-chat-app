@@ -14,6 +14,21 @@ const ChatFeed = (props) => {
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
+  const renderReadReceipts = (message, isMyMessage) => {
+    return chat?.people?.map(
+      (person, index) =>
+        person.last_read === message.id && (
+          <div
+            key={`read_${index}`}
+            className="read-receipt"
+            style={{
+              float: isMyMessage ? "right" : "left",
+              backgroundImage: `url(${person?.person?.avatar})`,
+            }}
+          />
+        )
+    );
+  };
   const renderMessages = () => {
     const keys = Object.keys(messages);
     return keys.map((key, index) => {
@@ -40,7 +55,7 @@ const ChatFeed = (props) => {
               marginLeft: isMyMessagee ? "0px" : "68px",
             }}
           >
-            Read Receipts
+            {renderReadReceipts(message, isMyMessagee)}
           </div>
           <div ref={messagesEndRef} />
         </div>
