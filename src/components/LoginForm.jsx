@@ -7,7 +7,6 @@ const LoginForm = () => {
   const [error, setError] = useState();
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Herre");
     const authObject = {
       "Project-Id": "a4183f34-59e5-4795-9341-2e1bcbdac042",
       "User-Name": username,
