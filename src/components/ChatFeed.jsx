@@ -9,7 +9,7 @@ const ChatFeed = (props) => {
   const messagesEndRef = useRef(null);
   useEffect(() => {
     scrollToBottom();
-  }, [props]);
+  }, [messages]);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
